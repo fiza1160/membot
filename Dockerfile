@@ -2,7 +2,7 @@ FROM python:3
 
 WORKDIR /opt
 
-COPY src /opt/app
+COPY app /opt/app
 
 RUN pip install -r /opt/app/requirements.txt
 

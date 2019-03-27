@@ -1,13 +1,13 @@
 import redis
 import sys
-from initialization import get_redis_host as redis_host
-from initialization import get_redis_port as redis_port
+
+from config import Config
 
 # TODO add func to change priority
 # TODO add func to delete one doing
 
 try:
-    base = redis.StrictRedis(host=redis_host(), port=redis_port(), db=0)
+    base = redis.StrictRedis(host=Config.REDIS_HOST, port=Config.REDIS_PORT, db=0)
 except ValueError as err:
     print(err.args[0])
     sys.exit(1)

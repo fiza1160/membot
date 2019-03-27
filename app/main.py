@@ -1,22 +1,22 @@
 import sys
-
-import base
-import initialization
 import telebot
-from telebot import types
+
+from app import base
+from config import Config
+
 
 try:
-    bot = telebot.TeleBot(initialization.get_telegram_token())
+    bot = telebot.TeleBot(Config.TELEGRAM_TOKEN_NAME)
 except ValueError as err:
     print(err.args[0])
     sys.exit(1)
 
 
 def get_markup():
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    itembtn1 = types.KeyboardButton('❓ About')
-    itembtn2 = types.KeyboardButton('📋 Show all')
-    itembtn3 = types.KeyboardButton('🔥 Delete all')
+    markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    itembtn1 = telebot.types.KeyboardButton('❓ About')
+    itembtn2 = telebot.types.KeyboardButton('📋 Show all')
+    itembtn3 = telebot.types.KeyboardButton('🔥 Delete all')
     markup.add(itembtn1, itembtn2, itembtn3)
     return markup
 
