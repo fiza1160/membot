@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:alpine
+    networks:
+      - membot_network
+  membot:
+    image: fiza1160/membot:0.0.1
+    env_file:
+      - .env
+    environment:
+      - MEM_BOT_REDIS_PORT=6379
+      - MEM_BOT_REDIS_HOST=redis
+    networks:
+      - membot_network
+networks:
+  membot_network:

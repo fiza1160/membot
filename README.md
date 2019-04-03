@@ -6,22 +6,17 @@ A lot of work to be done here, so stay tuned :)
 
 ## Installation
 
-### Docker image
-
-You can use docker image to run bot:
+### Docker compose
 
 ```bash
-docker pull fiza1160/membot:0.0.1
-docker run -d --rm fiza1160/membot:0.0.1
+git clone https://github.com/fiza1160/membot
+cd membot
+# You need to add Telegram Token to .env file
+# Please, read this article to know how to create telegram bot:
+# https://core.telegram.org/bots#3-how-do-i-create-a-bot
+# echo "MEM_BOT_TELEGRAM_TOKEN=<YOUR_TELEGRAM_TOKEN>" > .env
+docker-compose up
 ```
-
-Requirements:
-
-1. You must run `Redis` to work with bot. It stores data in Redis.
-2. Set environment variables:
-  - `MEM_BOT_TELEGRAM_TOKEN`
-  - `MEM_BOT_REDIS_PORT`
-  - `MEM_BOT_REDIS_HOST`
 
 ## TODO:
 
